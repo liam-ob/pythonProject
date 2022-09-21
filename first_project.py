@@ -1,34 +1,26 @@
-from dash import Dash, html, dcc
+from dash import Dash
+from dash import html
+from dash import dcc
 import plotly.express as px
-import pandas
 
 app = Dash(__name__)
 
 # assume you have a "long-form" data frame
 # see https://plotly.com/python/px-arguments/ for more options
 
-# get australias dataframe
-df_aus = px.data.gapminder().query("country=='Australia'")
+# get australias dataframe from plotly expresses dataset api
+data_frame = px.data.gapminder().query("country=='Australia'")
 
-# get new zealands dataframe (this function uses openpyxl)
-df_nz = pandas.read_excel(io='new_zealand_data.xlsx', index_col=0)
-
-# combine data frames
-concatenated_datasets = pandas.concat([df_aus, df_nz])
-
-fig = px.line(concatenated_datasets, x="year", y="pop", color="country", title="Title")
+# create a plotly line graph object with the dataframe
+fig = px.line(data_frame, x="year", y="pop", color="country", title="Title")
 
 app.layout = html.Div(children=[
-    html.H1(children='Random Data'),
+    # display html h1 component
+    html.H1(children='Australia Population Growth'),
 
-    html.Div(children='''
-        Data: A web application framework for your data.
-    '''),
-
+    # display dash core component as a plotly graph object
     dcc.Graph(
-        id='example-graph',
-        figure=fig
-    )
+        id='example-graph', figure=fig)
 ])
 
 if __name__ == '__main__':

@@ -161,7 +161,7 @@ et-xmlfile = "*"
 
 [[package]]
 name = "pandas"
-version = "1.4.4"
+version = "1.5.0"
 description = "Powerful data structures for data analysis, time series, and statistics"
 category = "main"
 optional = false
@@ -173,7 +173,7 @@ python-dateutil = ">=2.8.1"
 pytz = ">=2020.1"
 
 [package.extras]
-test = ["hypothesis (>=5.5.3)", "pytest (>=6.0)", "pytest-xdist (>=1.31)"]
+test = ["pytest-xdist (>=1.31)", "pytest (>=6.0)", "hypothesis (>=5.5.3)"]
 
 [[package]]
 name = "plotly"
@@ -241,7 +241,7 @@ watchdog = ["watchdog"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "225699d0140c245eac9da265337fe00c87be6317d467c855c8528f65c376a1d1"
+content-hash = "4b7f5c6ed62f94af4c7bb7f924d4a76c97b0f625c4285f0d83e5b8e14bc8474a"
 
 [metadata.files]
 brotli = []
